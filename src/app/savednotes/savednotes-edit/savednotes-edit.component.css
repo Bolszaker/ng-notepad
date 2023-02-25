@@ -1,0 +1,23 @@
+.textarea-wrapper {
+  position: relative;
+}
+.remaining {
+  font-size: 80%;
+  opacity: 0.7;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#title.ng-invalid.ng-touched,
+#content.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-right: 5px;
+}

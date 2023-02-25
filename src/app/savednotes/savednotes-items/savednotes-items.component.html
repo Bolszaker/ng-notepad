@@ -1,0 +1,21 @@
+<a
+  style="cursor: pointer"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="list-group-item clearfix"
+>
+  <div class="pull-left" style="position: relative">
+    <h4 class="list-group-item-heading">{{ notes.title }}</h4>
+    <p class="list-group-item-text">
+      {{ notes.content | slice : 0 : 60 }}
+      <span *ngIf="notes.content.length > 60"> ...</span>
+    </p>
+  </div>
+  <span style="position: absolute; right: 0; top: 0">
+    <img
+      src="https://play-lh.googleusercontent.com/36szRvmqeewn6fxpx9V88zhpPU3c84Im9zjAFPZl-cReiztnAD6cn0jSnWBGsNNdPsU"
+      class="img-responsive"
+      style="max-height: 70px; margin-top: 9.4px"
+    />
+  </span>
+</a>

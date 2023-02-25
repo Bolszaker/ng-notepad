@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-6">
+    <div id="head">
+      <h1 style="margin-bottom: 40px">Your notes</h1>
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="margin-bottom: 10px"
+        [routerLink]="'/notepad'"
+      >
+        New Note
+      </button>
+    </div>
+    <h4 *ngIf="notes.length > 0">Your saved notes:</h4>
+    <app-savednotes-items
+      *ngFor="let note of notes; let i = index"
+      [notes]="note"
+      [index]="i"
+    ></app-savednotes-items>
+    <div class="noNotes" *ngIf="notes.length == 0">
+      <h1>You have not saved any notes yet!</h1>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXKhDtNI8amqF40rM4nyRqnRAU7nqwrE9iuT15pfmC&s"
+      />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>

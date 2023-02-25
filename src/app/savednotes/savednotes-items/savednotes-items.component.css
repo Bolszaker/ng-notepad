@@ -1,0 +1,19 @@
+div.row {
+  margin-top: 5px;
+}
+
+a {
+  padding-left: 10px;
+  margin-bottom: -1px;
+  border-collapse: separate;
+  border: 1px black solid;
+}
+h4 {
+  margin-top: 10px;
+}
+
+button,
+button:active,
+button:focus {
+  outline: none;
+}

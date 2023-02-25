@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-xs-12">
+    <ngb-alert *ngIf="notesSaved" type="success" (closed)="onClose()"
+      >Successfully saved your note!</ngb-alert
+    >
+  </div>
+  <div class="col-xs-12">
+    <form (ngSubmit)="onSubmit(n)" #n="ngForm">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Notepad</h1>
+          <div class="form-group">
+            <label for="title">Title </label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              class="form-control"
+              maxlength="14"
+              ngModel
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="textarea-wrapper">
+            <label for="content">Your notepad </label>
+            <textarea
+              class="form-control"
+              id="content"
+              name="content"
+              type="text"
+              rows="10"
+              style="resize: none"
+              maxlength="1000"
+              [(ngModel)]="remainingValue"
+            >
+            </textarea>
+            <span class="remaining" *ngIf="remainingValue">{{
+              1000 - remainingValue.length
+            }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!n.valid"
+            style="margin-right: 5px"
+          >
+            Save
+          </button>
+          <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

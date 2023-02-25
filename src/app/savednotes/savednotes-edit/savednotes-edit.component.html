@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Edit your saved note!</h3>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="title">Title: </label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="title"
+          ngModel
+          required
+          maxlength="20"
+          [ngModel]="notes.title"
+        />
+      </div>
+      <div class="textarea-wrapper">
+        <label for="content">New Content: </label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="content"
+          name="content"
+          style="resize: none"
+          rows="10"
+          [(ngModel)]="remainingValue"
+          [ngModel]="notes.content"
+          required
+        ></textarea>
+        <span class="remaining" *ngIf="remainingValue">{{
+          1000 - remainingValue.length
+        }}</span>
+      </div>
+      <div class="col md-12">
+        <button type="submit" class="btn btn-success">Save!</button>
+        <button type="button" class="btn btn-danger" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

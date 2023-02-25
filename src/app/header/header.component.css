@@ -1,0 +1,7 @@
+a[name="tab"] {
+  color: rgb(99, 96, 96);
+}
+
+a[name="tab"]:hover {
+  color: rgb(15, 106, 241);
+}

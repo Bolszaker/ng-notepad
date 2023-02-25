@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="'/'">Notebook</a>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a
+            name="tab"
+            ngbNavLink
+            [routerLink]="'notepad'"
+            (click)="isMenuCollapsed = true"
+            >Notepad</a
+          >
+        </li>
+        <li [ngbNavItem]="2">
+          <a
+            name="tab"
+            ngbNavLink
+            [routerLink]="'saved'"
+            (click)="isMenuCollapsed = true"
+            >Your notes</a
+          >
+        </li>
+        <li [ngbNavItem]="3">
+          <a
+            name="tab"
+            ngbNavLink
+            [routerLink]="'.'"
+            (click)="isMenuCollapsed = true"
+            >About</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
