@@ -1,21 +1,56 @@
+.note-buttons {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+
+.note-content {
+  position: relative;
+}
+
 .title {
   position: absolute;
-  top: 15%;
+  top: 12%;
   left: 53%;
   transform: translate(-50%, -50%);
   color: black;
   font-size: 40px;
+  width: 100%;
   text-align: center;
 }
 
 .content {
+  padding-right: 10px;
   position: absolute;
-  top: 23%;
-  left: 9%;
-  font-weight: bold;
-  font-size: 20px;
-  margin-right: 42px;
-  max-height: 480px;
+  text-align: justify;
+  top: 19%;
+  left: 2%;
+  font-size: 25px;
+  max-height: 600px;
+  max-width: 96%;
+  width: 100%;
   overflow-y: auto;
-  line-height: 160%;
+  line-height: 171%;
+}
+
+/* Designing for scroll-bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(189, 187, 187);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(114, 114, 114);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

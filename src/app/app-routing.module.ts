@@ -10,13 +10,17 @@ import { SavednotesDetailsComponent } from './savednotes/savednotes-details/save
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
-  { path: 'notepad', component: NotepadComponent },
+  { path: 'notepad', component: NotepadComponent, title: 'Notepad' },
   {
     path: 'saved',
     component: SavednotesComponent,
+    title: 'Notepad - Saved Notes',
     children: [
-      { path: '', component: SavednotesStartComponent },
-      { path: ':id', component: SavednotesDetailsComponent },
+      // { path: '', component: SavednotesStartComponent },
+      {
+        path: ':id',
+        component: SavednotesDetailsComponent,
+      },
       { path: ':id/edit', component: SavednotesEditComponent },
     ],
   },

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Notes } from 'src/app/notepad/notes.model';
 import { NotesService } from '../notes.service';
@@ -8,6 +9,7 @@ import { NotesService } from '../notes.service';
   selector: 'app-savednotes-details',
   templateUrl: './savednotes-details.component.html',
   styleUrls: ['./savednotes-details.component.css'],
+  providers: [NgbModalConfig, NgbModal],
 })
 export class SavednotesDetailsComponent implements OnInit {
   @Input() notes: Notes;
@@ -17,8 +19,13 @@ export class SavednotesDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private notesService: NotesService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private modalService: NgbModal,
+    private config: NgbModalConfig
+  ) {
+    config.backdrop = true;
+    config.keyboard = false;
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -27,8 +34,12 @@ export class SavednotesDetailsComponent implements OnInit {
     });
   }
 
-  onDelete() {
+  reallyDelete() {
+    this.modalService.dismissAll();
     this.notesService.deleteNotes(this.id);
     this.router.navigate(['/saved']);
+  }
+  onDelete(content: any) {
+    this.modalService.open(content);
   }
 }

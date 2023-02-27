@@ -19,13 +19,11 @@
   width: 400px;
 }
 
-#head {
+.title {
   display: flex;
-  align-items: flex-start;
-  flex-direction: row;
 }
-button {
-  position: absolute;
-  right: 51%;
-  top: 17.5%;
+
+.title button {
+  margin-left: auto;
+  justify-content: flex-end;
 }
