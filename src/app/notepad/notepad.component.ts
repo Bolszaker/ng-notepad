@@ -13,6 +13,7 @@ export class NotepadComponent {
   @ViewChild('n', { static: false }) nForm: NgForm;
   remainingValue = '';
   notesSaved = false;
+  titleClear = '';
 
   constructor(private notesService: NotesService, private router: Router) {}
 
@@ -29,5 +30,17 @@ export class NotepadComponent {
 
   onClose() {
     this.notesSaved = false;
+  }
+
+  onClearTitle() {
+    this.nForm.controls['title'].reset();
+  }
+
+  onClearContent() {
+    this.nForm.controls['content'].reset();
+  }
+
+  onReset() {
+    this.nForm.resetForm();
   }
 }
