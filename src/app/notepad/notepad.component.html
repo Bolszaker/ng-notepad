@@ -9,8 +9,8 @@
       <div class="row">
         <div class="col-xs-12">
           <h1>Notepad</h1>
-          <div class="form-group">
-            <label for="title">Title </label>
+          <label for="title">Title </label>
+          <div class="input-group mb-3">
             <input
               type="text"
               name="title"
@@ -20,6 +20,13 @@
               ngModel
               required
             />
+            <button
+              *ngIf="n.value.title.length > 0"
+              class="btn-close"
+              type="button"
+              ngbTooltip="Clear"
+              (click)="onClearTitle()"
+            ></button>
           </div>
         </div>
       </div>
@@ -41,6 +48,12 @@
             <span class="remaining" *ngIf="remainingValue">{{
               1000 - remainingValue.length
             }}</span>
+            <button
+              class="btn-close"
+              type="button"
+              ngbTooltip="Clear"
+              (click)="onClearContent()"
+            ></button>
           </div>
         </div>
       </div>
@@ -54,7 +67,9 @@
           >
             Save
           </button>
-          <button type="button" class="btn btn-danger">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="onReset()">
+            Reset
+          </button>
         </div>
       </div>
     </form>

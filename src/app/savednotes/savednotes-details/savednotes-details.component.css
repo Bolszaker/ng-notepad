@@ -1,6 +1,6 @@
 .note-buttons {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 5px;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .content {
-  padding-right: 10px;
+  padding-right: 15px;
   position: absolute;
   text-align: justify;
   top: 19%;
