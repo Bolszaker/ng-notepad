@@ -12,8 +12,8 @@ import { WelcomeComponent } from './notepad/welcome/welcome.component';
 import { SavednotesComponent } from './savednotes/savednotes.component';
 import { SavednotesItemsComponent } from './savednotes/savednotes-items/savednotes-items.component';
 import { SavednotesEditComponent } from './savednotes/savednotes-edit/savednotes-edit.component';
-import { SavednotesStartComponent } from './savednotes/savednotes-start/savednotes-start.component';
 import { SavednotesDetailsComponent } from './savednotes/savednotes-details/savednotes-details.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,8 @@ import { SavednotesDetailsComponent } from './savednotes/savednotes-details/save
     SavednotesComponent,
     SavednotesItemsComponent,
     SavednotesEditComponent,
-    SavednotesStartComponent,
     SavednotesDetailsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

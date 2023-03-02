@@ -7,8 +7,8 @@
   <div class="pull-left" style="position: relative">
     <h4 class="list-group-item-heading">{{ notes.title }}</h4>
     <p class="list-group-item-text">
-      {{ notes.content | slice : 0 : 60 }}
-      <span *ngIf="notes.content.length > 60"> ...</span>
+      {{ notes.content | slice : 0 : 50 }}
+      <span *ngIf="notes.content.length > 50">...</span>
     </p>
   </div>
   <span style="position: absolute; right: 0; top: 0">

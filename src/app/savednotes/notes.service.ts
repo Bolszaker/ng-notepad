@@ -37,4 +37,9 @@ export class NotesService {
     this.notes.splice(index, 1);
     this.notesChanged.next(this.notes.slice());
   }
+
+  updateNotes(index: number, newNotes: Notes) {
+    this.notes[index] = newNotes;
+    this.notesChanged.next(this.notes.slice());
+  }
 }

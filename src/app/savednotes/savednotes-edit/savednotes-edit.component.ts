@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { Notes } from 'src/app/notepad/notes.model';
 import { NotesService } from '../notes.service';
 
@@ -8,6 +10,7 @@ import { NotesService } from '../notes.service';
   selector: 'app-savednotes-edit',
   templateUrl: './savednotes-edit.component.html',
   styleUrls: ['./savednotes-edit.component.css'],
+  providers: [NgbModalConfig, NgbModal],
 })
 export class SavednotesEditComponent implements OnInit {
   @ViewChild('f') editForm: NgForm;
@@ -18,7 +21,9 @@ export class SavednotesEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private notesService: NotesService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal,
+    private config: NgbModalConfig
   ) {}
 
   ngOnInit(): void {
@@ -28,10 +33,21 @@ export class SavednotesEditComponent implements OnInit {
     });
   }
 
-  onSubmit(form: NgForm) {}
+  onSubmit(form: NgForm) {
+    // this.details.editSuccess = true;
+    const value = form.value;
+    const updatedNotes = new Notes(value.title, value.content);
+    this.notesService.updateNotes(this.id, updatedNotes);
+    this.router.navigate(['/saved/' + this.id]);
+    this.modalService.dismissAll();
+  }
+
+  reallyUpdate(content: any) {
+    this.modalService.open(content);
+  }
 
   onCancel() {
     this.editForm.reset();
-    this.router.navigate(['/saved']);
+    this.router.navigate(['/saved/' + this.id]);
   }
 }
