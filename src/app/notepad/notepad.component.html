@@ -21,7 +21,7 @@
               required
             />
             <button
-              *ngIf="n.value.title.length > 0"
+              *ngIf="n.value.title > 0"
               class="btn-close"
               type="button"
               ngbTooltip="Clear"
@@ -42,6 +42,7 @@
               rows="10"
               style="resize: none"
               maxlength="1000"
+              required
               [(ngModel)]="remainingValue"
             >
             </textarea>
@@ -49,6 +50,7 @@
               1000 - remainingValue.length
             }}</span>
             <button
+              *ngIf="n.value.content > 0"
               class="btn-close"
               type="button"
               ngbTooltip="Clear"

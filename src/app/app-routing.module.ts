@@ -5,8 +5,8 @@ import { NotepadComponent } from './notepad/notepad.component';
 import { SavednotesComponent } from './savednotes/savednotes.component';
 import { WelcomeComponent } from './notepad/welcome/welcome.component';
 import { SavednotesEditComponent } from './savednotes/savednotes-edit/savednotes-edit.component';
-import { SavednotesStartComponent } from './savednotes/savednotes-start/savednotes-start.component';
 import { SavednotesDetailsComponent } from './savednotes/savednotes-details/savednotes-details.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -16,7 +16,6 @@ const routes: Routes = [
     component: SavednotesComponent,
     title: 'Notepad - Saved Notes',
     children: [
-      // { path: '', component: SavednotesStartComponent },
       {
         path: ':id',
         component: SavednotesDetailsComponent,
@@ -24,6 +23,7 @@ const routes: Routes = [
       { path: ':id/edit', component: SavednotesEditComponent },
     ],
   },
+  { path: 'about', component: AboutComponent, title: 'About' },
 ];
 
 @NgModule({

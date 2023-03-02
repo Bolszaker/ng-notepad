@@ -15,6 +15,7 @@ export class SavednotesDetailsComponent implements OnInit {
   @Input() notes: Notes;
   @Input() index: number;
   id: number;
+  editSuccess: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +40,12 @@ export class SavednotesDetailsComponent implements OnInit {
     this.notesService.deleteNotes(this.id);
     this.router.navigate(['/saved']);
   }
+
   onDelete(content: any) {
     this.modalService.open(content);
+  }
+
+  editDone() {
+    this.editSuccess = false;
   }
 }

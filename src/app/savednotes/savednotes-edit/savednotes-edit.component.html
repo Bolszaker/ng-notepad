@@ -11,7 +11,7 @@
           name="title"
           ngModel
           required
-          maxlength="20"
+          maxlength="14"
           [ngModel]="notes.title"
         />
       </div>
@@ -33,7 +33,14 @@
         }}</span>
       </div>
       <div class="col md-12">
-        <button type="submit" class="btn btn-success">Save!</button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="reallyUpdate(content)"
+          [disabled]="!f.valid"
+        >
+          Save
+        </button>
         <button type="button" class="btn btn-danger" (click)="onCancel()">
           Cancel
         </button>
@@ -41,3 +48,27 @@
     </form>
   </div>
 </div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirm!</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+      style="box-shadow: none"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Your new title:</strong> {{ f.value.title }}</p>
+    <p><strong>Your new content:</strong> {{ f.value.content }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="onSubmit(f)">
+      Update
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="d()">
+      Back
+    </button>
+  </div>
+</ng-template>
