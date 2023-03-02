@@ -7,8 +7,8 @@
   <div class="col-xs-12">
     <form (ngSubmit)="onSubmit(n)" #n="ngForm">
       <div class="row">
+        <h1>Notepad</h1>
         <div class="col-xs-12">
-          <h1>Notepad</h1>
           <label for="title">Title </label>
           <div class="input-group mb-3">
             <input
@@ -60,18 +60,27 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="!n.valid"
-            style="margin-right: 5px"
-          >
-            Save
-          </button>
-          <button type="button" class="btn btn-danger" (click)="onReset()">
-            Reset
-          </button>
+        <div id="buttons">
+          <div class="item1">
+            <button type="submit" class="btn btn-success" [disabled]="!n.valid">
+              Save
+            </button>
+          </div>
+          <div class="item2">
+            <button
+              type="button"
+              class="btn btn-danger"
+              ngbTooltip="Return to Saved Notes"
+              (click)="onCancel()"
+            >
+              Cancel
+            </button>
+          </div>
+          <div class="item3">
+            <button type="button" class="btn btn-secondary" (click)="onReset()">
+              Clear all
+            </button>
+          </div>
         </div>
       </div>
     </form>

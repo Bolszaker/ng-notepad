@@ -43,3 +43,14 @@ textarea.ng-touched.ng-invalid {
   outline: none;
   box-shadow: none;
 }
+
+#buttons {
+  display: flex;
+  margin: 0 auto;
+  gap: 5px;
+}
+
+.item3 {
+  margin-left: auto;
+  align-self: flex-end;
+}

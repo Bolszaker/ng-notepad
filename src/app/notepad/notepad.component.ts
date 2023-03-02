@@ -43,4 +43,9 @@ export class NotepadComponent {
   onReset() {
     this.nForm.resetForm();
   }
+
+  onCancel() {
+    this.nForm.resetForm();
+    this.router.navigate(['/saved']);
+  }
 }
